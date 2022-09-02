@@ -1,6 +1,5 @@
 package com.jtdreamer.spell_combination.screen;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,16 +16,6 @@ public class WandContainer implements MenuProvider {
 	public WandContainer(ItemStack stack, Player player) {
 		this.player = player;
 		this.stack = stack;
-
-		this.loadItems(stack.getOrCreateTag());
-	}
-
-	public void loadItems(CompoundTag compound) {
-		this.inventory.deserializeNBT(compound.getCompound("Inventory"));
-	}
-
-	public void saveItems(CompoundTag compound) {
-		compound.put("Inventory", this.inventory.serializeNBT());
 	}
 
 	public ItemStackHandler getHandler() {
